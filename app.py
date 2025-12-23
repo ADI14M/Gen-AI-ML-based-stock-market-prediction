@@ -1,4 +1,11 @@
 import streamlit as st
+
+st.set_page_config(page_title="StockVision AI - Stock Market Dashboard", layout="wide")
+
+from dashboard_home import show_dashboard
+from ipo_dashboard import show_ipo_dashboard
+from ai_insights import show_ai_insights
+from ai_assistant import show_ai_assistant
 from twitter_sentiment_analysis import run_twitter_sentiment_analysis
 from stock_sentiment_analysis import run_stock_sentiment_analysis
 from stock_trend_prediction import run_stock_trend_prediction
@@ -6,11 +13,14 @@ from investors_info import show_investors
 from analyst_ratings import show_analyst_ratings
 
 
-st.set_page_config(page_title="StockVision AI - Stock Market Dashboard", layout="wide")
 st.title("📈 StockVision AI - Market Intelligence Dashboard")
 
 # Sidebar Navigation
 pages = {
+    "🏠 Home / Dashboard": show_dashboard,
+    "🧠 AI StockVision Score": show_ai_insights,
+    "🤖 AI Market Assistant": show_ai_assistant,
+    "🚀 IPO Dashboard": show_ipo_dashboard,
     "💹 Stock Sentiment Analysis": run_stock_sentiment_analysis,   
     "🐦 Twitter Sentiment Analysis": run_twitter_sentiment_analysis,
     "📊 Stock Trend Prediction": run_stock_trend_prediction,
