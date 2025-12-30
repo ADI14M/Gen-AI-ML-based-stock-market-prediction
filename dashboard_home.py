@@ -17,7 +17,7 @@ def show_dashboard():
         h1 {
             font-size: 2.2rem !important;
             font-weight: 700;
-            color: #1E293B !important;
+            color: #F8FAFC !important; /* Light text for dark mode */
             margin-bottom: 0.5rem !important;
         }
         
@@ -27,17 +27,17 @@ def show_dashboard():
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #64748B !important;
+            color: #94A3B8 !important; /* Lighter slate */
             margin-top: 1.5rem !important;
             margin-bottom: 0.8rem !important;
-            border-bottom: 2px solid #E2E8F0;
+            border-bottom: 2px solid #334155; /* Darker border */
             padding-bottom: 5px;
         }
 
         /* Custom Class for 'Welcome' text */
         .sub-header-text { 
             font-size: 1.0rem !important; 
-            color: #64748B; 
+            color: #CBD5E1; /* Light grey */
             font-weight: 400; 
         }
 
@@ -45,11 +45,11 @@ def show_dashboard():
         [data-testid="stMetricValue"] {
             font-size: 1.5rem !important;
             font-weight: 600;
-            color: #0F172A !important;
+            color: #F1F5F9 !important; /* Almost white */
         }
         [data-testid="stMetricLabel"] {
             font-size: 0.85rem !important;
-            color: #475569 !important;
+            color: #94A3B8 !important;
             font-weight: 500;
         }
         [data-testid="stMetricDelta"] {
@@ -57,23 +57,23 @@ def show_dashboard():
         }
 
         /* Card-like containers for data */
-        .css-1r6slb0, .stDataFrame { 
+        .css-1r6slb0, .stDataFrame, .stTable { 
             border-radius: 8px;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-            background-color: #FFFFFF;
+            border: 1px solid #334155; /* Dark border */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+            background-color: #1E293B; /* Dark card background */
         }
         
         /* Table Headers */
         .dataframe th {
             font-size: 0.85rem !important;
-            background-color: #F8FAFC !important;
-            color: #475569 !important;
+            background-color: #0F172A !important; /* Very dark header */
+            color: #E2E8F0 !important;
         }
         .dataframe td {
             font-size: 0.9rem !important;
-            color: #334155 !important;
-            border-bottom: 1px solid #E2E8F0 !important;
+            color: #CBD5E1 !important;
+            border-bottom: 1px solid #334155 !important;
         }
         </style>
         """, unsafe_allow_html=True)
@@ -151,7 +151,7 @@ def show_dashboard():
     
     # Style the dataframe (Highlight Positive P&L in Green, Negative in Red)
     def color_pnl(val):
-        color = 'green' if val >= 0 else 'red'
+        color = '#4ADE80' if val >= 0 else '#F87171' # Brighter green/red
         return f'color: {color}'
 
     # Adjust Index to start from 1

@@ -15,7 +15,7 @@ from analyst_ratings import show_analyst_ratings
 
 st.title("📈 StockVision AI - Market Intelligence Dashboard")
 
-# Sidebar Navigation
+
 pages = {
     "🏠 Home / Dashboard": show_dashboard,
     "🧠 AI StockVision Score": show_ai_insights,

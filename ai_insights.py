@@ -64,20 +64,20 @@ def show_ai_insights():
         # Color coding
         if score >= 80:
             verdict = "STRONG BUY 🚀"
-            color = "#16A34A" # Green
-            bg_color = "#DCFCE7"
+            color = "#4ADE80" # Brighter Green
+            bg_color = "rgba(22, 163, 74, 0.2)" # Dark transparent green
         elif score >= 60:
             verdict = "BUY 🟢"
-            color = "#16A34A"
-            bg_color = "#F0FDF4"
+            color = "#4ADE80"
+            bg_color = "rgba(22, 163, 74, 0.1)"
         elif score >= 40:
             verdict = "HOLD 🟡"
-            color = "#CA8A04" # Yellow
-            bg_color = "#FEF9C3"
+            color = "#FACC15" # Brighter Yellow
+            bg_color = "rgba(234, 179, 8, 0.1)"
         else:
             verdict = "SELL 🔴"
-            color = "#DC2626" # Red
-            bg_color = "#FEE2E2"
+            color = "#F87171" # Brighter Red
+            bg_color = "rgba(220, 38, 38, 0.1)"
 
         # --- The Super Card ---
         html_content = textwrap.dedent(f"""
@@ -87,13 +87,14 @@ def show_ai_insights():
                     font-family: 'Roboto', sans-serif;
                     margin: 0;
                     padding: 5px;
+                    background-color: transparent;
                 }}
             </style>
-            <div style="background-color: white; padding: 30px; border-radius: 15px; border: 1px solid #E2E8F0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-top: 10px;">
+            <div style="background-color: #1E293B; padding: 30px; border-radius: 15px; border: 1px solid #334155; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); margin-top: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <h2 style="margin:0; color: #1E293B;">StockVision Score</h2>
-                        <p style="color: #64748B; margin-top: 0;">Confidence Level matching {ticker}</p>
+                        <h2 style="margin:0; color: #F8FAFC;">StockVision Score</h2>
+                        <p style="color: #94A3B8; margin-top: 0;">Confidence Level matching {ticker}</p>
                     </div>
                     <div style="text-align: right;">
                         <span style="font-size: 3.5rem; font-weight: 800; color: {color};">{score}/100</span>
@@ -102,28 +103,28 @@ def show_ai_insights():
                 
                 <div style="background-color: {bg_color}; border-left: 5px solid {color}; padding: 15px; margin: 20px 0; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: {color}; font-size: 1.5rem;">{verdict}</h3>
-                    <p style="margin: 0; color: #334155; font-weight: 500;">AI Analysis:</p>
-                    <ul style="margin: 5px 0 0 20px; color: #475569;">
+                    <p style="margin: 0; color: #CBD5E1; font-weight: 500;">AI Analysis:</p>
+                    <ul style="margin: 5px 0 0 20px; color: #94A3B8;">
                         <li>{data['reasoning'][0]}</li>
                         <li>{data['reasoning'][1]}</li>
                     </ul>
                 </div>
                 
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; text-align: center;">
-                    <div style="background-color: #F8FAFC; padding: 15px; border-radius: 10px;">
-                        <div style="font-size: 0.9rem; color: #64748B; margin-bottom: 5px;">Technicals</div>
-                        <div style="font-size: 1.2rem; font-weight: 700; color: #0F172A;">{data['technicals']}/100</div>
-                        <div style="font-size: 0.8rem; color: #22C55E;">Trend</div>
+                    <div style="background-color: #0F172A; padding: 15px; border-radius: 10px; border: 1px solid #334155;">
+                        <div style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 5px;">Technicals</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: #F1F5F9;">{data['technicals']}/100</div>
+                        <div style="font-size: 0.8rem; color: #4ADE80;">Trend</div>
                     </div>
-                    <div style="background-color: #F8FAFC; padding: 15px; border-radius: 10px;">
-                        <div style="font-size: 0.9rem; color: #64748B; margin-bottom: 5px;">Sentiment</div>
-                        <div style="font-size: 1.2rem; font-weight: 700; color: #0F172A;">{data['sentiment']}/100</div>
-                        <div style="font-size: 0.8rem; color: #3B82F6;">Social/News</div>
+                    <div style="background-color: #0F172A; padding: 15px; border-radius: 10px; border: 1px solid #334155;">
+                        <div style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 5px;">Sentiment</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: #F1F5F9;">{data['sentiment']}/100</div>
+                        <div style="font-size: 0.8rem; color: #60A5FA;">Social/News</div>
                     </div>
-                    <div style="background-color: #F8FAFC; padding: 15px; border-radius: 10px;">
-                        <div style="font-size: 0.9rem; color: #64748B; margin-bottom: 5px;">Fundamentals</div>
-                        <div style="font-size: 1.2rem; font-weight: 700; color: #0F172A;">{data['fundamentals']}/100</div>
-                        <div style="font-size: 0.8rem; color: #A855F7;">Valuation</div>
+                    <div style="background-color: #0F172A; padding: 15px; border-radius: 10px; border: 1px solid #334155;">
+                        <div style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 5px;">Fundamentals</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: #F1F5F9;">{data['fundamentals']}/100</div>
+                        <div style="font-size: 0.8rem; color: #C084FC;">Valuation</div>
                     </div>
                 </div>
             </div>

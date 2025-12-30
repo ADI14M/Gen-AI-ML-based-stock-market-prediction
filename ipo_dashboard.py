@@ -57,8 +57,8 @@ def show_ipo_dashboard():
             width: 100%;
         }
         .stDataFrame th {
-            background-color: #F8FAFC !important;
-            color: #1E293B !important;
+            background-color: #0F172A !important; /* Dark header */
+            color: #F1F5F9 !important; /* Light text */
             font-weight: 700 !important;
             font-size: 0.9rem !important;
             text-align: left !important;
@@ -66,9 +66,9 @@ def show_ipo_dashboard():
         }
         .stDataFrame td {
             font-size: 0.9rem !important;
-            color: #334155 !important;
+            color: #CBD5E1 !important; /* Light grey text */
             padding: 10px !important;
-            border-bottom: 1px solid #E2E8F0 !important;
+            border-bottom: 1px solid #334155 !important;
         }
         
         /* Fire Rating Color */
@@ -76,10 +76,10 @@ def show_ipo_dashboard():
             color: #F59E0B;
         }
         
-        /* Status Badges - Keep specific colors as they are semantic */
-        .status-open { color: #15803D; font-weight: 600; }
-        .status-upcoming { color: #1D4ED8; font-weight: 600; }
-        .status-closed { color: #64748B; font-weight: 500; }
+        /* Status Badges - Brighten optimized for dark mode */
+        .status-open { color: #4ADE80; font-weight: 600; } /* Brighter green */
+        .status-upcoming { color: #60A5FA; font-weight: 600; } /* Brighter blue */
+        .status-closed { color: #94A3B8; font-weight: 500; }
         </style>
     """, unsafe_allow_html=True)
 
@@ -112,10 +112,10 @@ def show_ipo_dashboard():
     # --- Styling Function ---
     def color_gmp(val):
         if val > 0:
-            return 'color: #16A34A; font-weight: bold;' # Green
+            return 'color: #4ADE80; font-weight: bold;' # Brighter Green
         elif val < 0:
-            return 'color: #DC2626; font-weight: bold;' # Red
-        return 'color: #64748B;' # Grey
+            return 'color: #F87171; font-weight: bold;' # Brighter Red
+        return 'color: #94A3B8;' # Slate Grey
     
     # --- Content ---
     
