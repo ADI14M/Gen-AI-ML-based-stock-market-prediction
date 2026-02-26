@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="StockVision AI - Stock Market Dashboard", layout="wide")
+st.set_page_config(page_title="StockVision AI - Stock Market Dashboard by Aditya M", layout="wide")
 
 from dashboard_home import show_dashboard
 from ipo_dashboard import show_ipo_dashboard
@@ -13,7 +13,7 @@ from investors_info import show_investors
 from analyst_ratings import show_analyst_ratings
 
 
-st.title("📈 StockVision AI - Market Intelligence Dashboard")
+st.title("📈 StockVision AI - Market Intelligence Dashboard by Aditya")
 
 
 pages = {
